@@ -2,7 +2,7 @@
 set -e
 
 if [ $EUID -ne 0 ]; then 
-    echo -e "\e[31mYou have to run this script with sudo\e[0m\nType: sudo bash $0"
+    echo -e "\e[31mThis script must be run as root\e[0m\nType: sudo bash $0"
     exit 1
 fi
 
