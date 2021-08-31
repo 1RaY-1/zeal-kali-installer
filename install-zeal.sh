@@ -1,11 +1,13 @@
 #!/bin/bash
 set -e
 
+# check if root
 if [ $EUID -ne 0 ]; then 
     echo -e "\e[31mThis script must be run as root\e[0m\nType: sudo bash $0"
     exit 1
 fi
 
+# check system architecture
 case `dpkg --print-architecture` in
 x86_64 | amd64)
     sa='amd64'
@@ -23,6 +25,7 @@ http://deb.debian.org/debian/pool/main/z/zeal/
     ;;
 esac
 
+# start the installation
 echo -e "Installing Zeal...\n"
 
 a=$(curl -s https://api.github.com/repos/zealdocs/zeal/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
@@ -35,8 +38,9 @@ dpkg -i ${url##*/}
 rm ${url##*/}
 
 # install dependencies
-apt-get -f install -y
+apt-get -f install
 
+# finish
 echo -e "\n\e[32mComplete!\e[0m\nNow you can run Zeal by typing: zeal"
 exit 0
 
