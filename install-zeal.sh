@@ -16,7 +16,7 @@ i386)
     sa='i386'
     ;;
     *)
-    echo "\e[31m
+    echo -e "\e[31m
 This installer is for AMD64, x86_64 and i386 only.\e[0m
 You can find needed packages for your system architecture here:
 http://deb.debian.org/debian/pool/main/z/zeal/
@@ -41,6 +41,9 @@ rm ${url##*/}
 apt-get -f install
 
 # finish
-echo -e "\n\e[32mComplete!\e[0m\nNow you can run Zeal by typing: zeal"
+if ! [ -x "$(command -v git)" ]; then
+  echo -e "\e[31mSorry, Zeal is not installed.\e[0m\nTry installing it manaully."
+  exit 1
+else
+    echo -e "\n\e[32mComplete! \e[0m \nNow you can run Zeal by typing: zeal"
 exit 0
-
