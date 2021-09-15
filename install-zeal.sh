@@ -40,8 +40,8 @@ rm ${url##*/}
 # install dependencies
 apt-get -f install
 
-# finish
-if ! [ -x "$(command -v git)" ]; then
+# finish and check zeal is installed or not
+if ! [ -x "$(command -v zeal)" ]; then
   echo -e "\e[31mSorry, Zeal is not installed.\e[0m\nTry installing it manaully."
   exit 1
 else
