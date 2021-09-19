@@ -46,4 +46,5 @@ if ! [ -x "$(command -v zeal)" ]; then
   exit 1
 else
     echo -e "\n\e[32mComplete! \e[0m \nNow you can run Zeal by typing: zeal"
+fi
 exit 0
