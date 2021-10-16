@@ -7,3 +7,10 @@ If your system architecture is not AMD64, x86_64 or I386, you can find needed pa
 ).
 
 **Do not forget to run this script with** ```sudo``` **command!**
+
+# Install
+To install zeal copy and paste this in your terminal:
+
+`
+wget https://raw.githubusercontent.com/1RaY-1/zeal-kali-installer/main/install-zeal.sh && sudo bash install-zeal.sh
+`
