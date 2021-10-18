@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/bash
+
+# exit on any error
 set -e
 
 # check if root
@@ -17,8 +19,8 @@ i386)
     ;;
     *)
     echo -e "\e[31m
-This installer is for AMD64, x86_64 and i386 only.\e[0m
-You can find needed packages for your system architecture here:
+This installer is made for AMD64, x86_64 and i386 only!\e[0m
+You can find needed packages for your PC here:
 http://deb.debian.org/debian/pool/main/z/zeal/
 "
     exit 1
@@ -41,7 +43,7 @@ rm ${url##*/}
 apt-get -f install
 
 # finish and check zeal is installed or not
-if ! [ -x "$(command -v zeal)" ]; then
+if ! [ `command -v zeal` ]; then
   echo -e "\e[31mSorry, Zeal is not installed.\e[0m\nTry installing it manaully."
   exit 1
 else
